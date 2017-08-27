@@ -11,6 +11,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 
 class LoginController extends Controller
 {
@@ -32,4 +33,16 @@ class LoginController extends Controller
 	    ));
 
     }
+
+	/**
+	 * @Route("/logout", name="logout")
+	 * @Method({"GET"})
+	 */
+	public function logoutAction(Request $request)
+	{
+	    //$session = $this->$request->getSession();
+	    $session = $this->get('session')->clear();
+	    return $this->redirectToRoute('login');
+	}
+
 }

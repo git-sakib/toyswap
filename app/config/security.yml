@@ -25,8 +25,15 @@ security:
             form_login:
                 login_path: login
                 check_path: login
-
+            logout:
+                path:   logout
+                target: login
+                
             # added to implemnet basic security system
-            pattern:    ^/
+            pattern:    ^/admin
             http_basic: ~
             provider: our_db_provider
+
+    access_control:
+        # require ROLE_ADMIN for /admin*
+        - { path: ^/admin, roles: ROLE_USER }
