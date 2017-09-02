@@ -1,0 +1,32 @@
+ToyBundle\Entity\Toy:
+    type: entity
+    table: toys
+    repositoryClass: ToyBundle\Repository\ToyRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        detail:
+            type: text
+            nullable: true
+        status:
+            type: string
+            length: 255
+        picture:
+            type: string
+            length: 255
+        type:
+            type: string
+            length: 255
+        date:
+            type: datetime
+        userId:
+            type: integer
+            column: user_id
+    lifecycleCallbacks: {  }

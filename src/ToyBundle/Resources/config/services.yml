@@ -1,0 +1,4 @@
+services:
+#    toy.example:
+#        class: ToyBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

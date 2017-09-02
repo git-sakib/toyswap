@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Toy</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ toy.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ toy.name }}</td>
+            </tr>
+            <tr>
+                <th>Detail</th>
+                <td>{{ toy.detail }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ toy.status }}</td>
+            </tr>
+            <tr>
+                <th>Picture</th>
+                <td>{{ toy.picture }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ toy.type }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{% if toy.date %}{{ toy.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Userid</th>
+                <td>{{ toy.userId }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('toy_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('toy_edit', { 'id': toy.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

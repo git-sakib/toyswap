@@ -1,0 +1,24 @@
+toy_index:
+    path:     /
+    defaults: { _controller: "ToyBundle:Toy:index" }
+    methods:  GET
+
+toy_show:
+    path:     /{id}/show
+    defaults: { _controller: "ToyBundle:Toy:show" }
+    methods:  GET
+
+toy_new:
+    path:     /new
+    defaults: { _controller: "ToyBundle:Toy:new" }
+    methods:  [GET, POST]
+
+toy_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ToyBundle:Toy:edit" }
+    methods:  [GET, POST]
+
+toy_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ToyBundle:Toy:delete" }
+    methods:  DELETE

@@ -1,3 +1,7 @@
+toy:
+    resource: "@ToyBundle/Resources/config/routing.yml"
+    prefix:   /toys
+
 app:
     resource: '@AppBundle/Controller/'
     type: annotation

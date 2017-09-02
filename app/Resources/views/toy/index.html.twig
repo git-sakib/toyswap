@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Toys list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Detail</th>
+                <th>Status</th>
+                <th>Picture</th>
+                <th>Type</th>
+                <th>Date</th>
+                <th>Userid</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for toy in toys %}
+            <tr>
+                <td><a href="{{ path('toy_show', { 'id': toy.id }) }}">{{ toy.id }}</a></td>
+                <td>{{ toy.name }}</td>
+                <td>{{ toy.detail }}</td>
+                <td>{{ toy.status }}</td>
+                <td>{{ toy.picture }}</td>
+                <td>{{ toy.type }}</td>
+                <td>{% if toy.date %}{{ toy.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ toy.userId }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('toy_show', { 'id': toy.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('toy_edit', { 'id': toy.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('toy_new') }}">Create a new toy</a>
+        </li>
+    </ul>
+{% endblock %}
