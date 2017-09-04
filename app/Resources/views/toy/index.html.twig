@@ -3,7 +3,7 @@
 {% block body %}
     <h1>Toys list</h1>
 
-    <table>
+    <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
@@ -29,23 +29,14 @@
                 <td>{% if toy.date %}{{ toy.date|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{{ toy.userId }}</td>
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('toy_show', { 'id': toy.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('toy_edit', { 'id': toy.id }) }}">edit</a>
-                        </li>
-                    </ul>
+                    <a class="btn btn-success" href="{{ path('toy_show', { 'id': toy.id }) }}">show</a>
+                    <a class="btn btn-success" href="{{ path('toy_edit', { 'id': toy.id }) }}">edit</a>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('toy_new') }}">Create a new toy</a>
-        </li>
-    </ul>
+    <a class="btn btn-primary" href="{{ path('toy_new') }}">Create a new toy</a>
+
 {% endblock %}
