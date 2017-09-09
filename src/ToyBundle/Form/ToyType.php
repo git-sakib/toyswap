@@ -2,9 +2,11 @@
 
 namespace ToyBundle\Form;
 
+//use Doctrine\DBAL\Types\TextType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class ToyType extends AbstractType
 {
@@ -13,7 +15,13 @@ class ToyType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name')->add('detail')->add('status')->add('picture')->add('type')->add('date')->add('userId');
+        $builder->add('name',TextType::class,array('label' => 'form-control'))
+            ->add('detail')
+            ->add('status')
+            ->add('picture')
+            ->add('type')
+            ->add('date')
+            ->add('userId');
     }
     
     /**
